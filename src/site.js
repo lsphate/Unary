@@ -35,32 +35,72 @@ for (recIdx in testJSON) {
 
 }
 $('textarea#test').val(textarea);
-$('#colsel').colorselector();
-events = JSON.parse(events);
 
-// Multi-layer Rainbow Chart
+events = JSON.parse(events);
+var divSize = ($('div.container').width())/12*7;
+$('#svg_donut').width(divSize).height(divSize);
+
 var guests = testJSON[0]["guestusr"],
     dates = testJSON[0]["dates"],
     size = dates.length,
     innerR = 100,
-    slice = (2 * Math.PI * 0.75) / size,
+    stroke = 30,
+    slice = (2*Math.PI*0.8)/size,
     arc =[],
     k = 0;
 
-var vis = d3.select("#svg_donut");
+// Color picker
+$('#colorpicker').colorselector();
+for (i = 0; i < guests.length; i++) {
+    var c = guests[i]["color"];
+    $('#colorpicker > option').each(function() {
+        if ($(this).attr("data-color") == c)
+            $(this).prop("disabled", true);
+    });
+    $('a.color-btn').each(function() {
+        if ($(this).attr("data-color") == c) {
+            $(this).attr("style", "background-color: rgb(125, 125, 125)");
+        }
+    });
+}
+
+
+// Checkboxes
+var ckbox = $("div.col-md-12").first();
+
+for (i = 1; i <= dates.length; i++) {
+    ckbox.append('<div class="checkbox"><label><input type="checkbox" value="true" name="' + i +'" />' + dates[i - 1] + '</label></div>');
+}
+
+
+// Multi-layer rainbow chart
+var svg = d3.select("#svg_donut");
 
 for (i = 0; i < guests.length; i++) {
-    innerR += 20;
+    innerR += (stroke + 5);
+    arc.push(d3.svg.arc().innerRadius(innerR + (stroke/2)-0.5).outerRadius(innerR + (stroke/2)+0.5).startAngle(0).endAngle(2*Math.PI*0.8));
     for (j = 0; j < guests[i]["availible"].length; j++) {
-        arc.push(d3.svg.arc().innerRadius(innerR).outerRadius(innerR + 15).startAngle((guests[i]["availible"][j] - 1) * slice).endAngle(guests[i]["availible"][j] * slice));
+        arc.push(d3.svg.arc().innerRadius(innerR).outerRadius(innerR + stroke).startAngle((guests[i]["availible"][j] - 1) * slice).endAngle(guests[i]["availible"][j] * slice));
     }
 }
 
 for (i = 0; i < guests.length; i++) {
     var lab = guests[i]["name"];
     var col = guests[i]["color"];
+    svg.append("path").attr("d", arc[k]).attr("transform", "translate(" + divSize/2 + "," + divSize/2+")").attr("fill", "grey").style("stroke-opacity", 0.25);
+    k++;
     for (j = 0; j < guests[i]["availible"].length; j++) {
-        vis.append("path").attr("d", arc[k]).attr("transform", "translate(300,200)").attr("fill", col);
+        svg.append("path").attr("d", arc[k]).attr("transform", "translate(" + divSize/2 + "," + divSize/2+")").attr("fill", col).attr().style('stroke', 'black');
         k++;
     }
+    svg.append("text").style("text-anchor", "end").text(lab)
+                      .attr("font-size","20")
+                      .attr("transform", "translate(" + (divSize/2-10) + "," + (divSize/2-145-(stroke+7)*i) + ")");
 }
+
+
+
+
+
+
+
