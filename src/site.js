@@ -6,7 +6,7 @@ var textarea = "",
 
 for (recIdx in testJSON) {
     textarea += "Event ID:\t" + testJSON[recIdx]["id"] + "\n";
-    textarea += "\tNote\t" + testJSON[recIdx]["describe"] + "\n";
+    textarea += "\tNote:\t" + testJSON[recIdx]["describe"] + "\n";
     textarea += "\tHost:\t" + testJSON[recIdx]["hostusr"]["name"] + "\n";
     var dateString = "",
         guestString = "";
