@@ -1,0 +1,50 @@
+{% extends  "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>Unary</h1>
+        <p>A simple efficient way to host events</p>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div class="col-md-9">
+                    <label>Name:</label>
+                    <input type="text" class="form-control" name="guestname" />
+                </div>
+                <div class="col-md-3">
+                    <label>Color:</label>
+                    <select class="from-control" id="colorpicker" name="guestcolor">
+                        <option value="1" data-color="#EE2C2C">Red</option>
+                        <option value="2" data-color="#1C86EE">Blue</option>
+                        <option value="3" data-color="#458B00">Green</option>
+                        <option value="4" data-color="#FFD700">Yellow</option>
+                        <option value="5" data-color="#FFA500">Orange</option>
+                        <option value="6" data-color="#FF69B4">Pink</option>
+                        <option value="7" data-color="#00BFFF">SkyBlue</option>
+                        <option value="8" data-color="#9ACD32">Grass</option>
+                        <option value="9" data-color="#8B7355">Wood</option>
+                        <option value="10" data-color="#AB82FF">Purple</option>
+                    </select>
+                </div>
+                <div class="col-md-12">
+                    <br>
+                    <label>Check your availities:</label>
+
+                </div>
+            </form>
+            <div class="col-md-12">
+                <br>
+                <label>Test:</label>
+                <textarea class="form-control" rows="17" id="test"></textarea>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <label>See others availities:</label>
+            <svg id="svg_donut"></svg>
+        </div>
+    </div>
+</div>
+<script src="/asset/js/site.js"></script>
+<!-- // <script src="site.js"></script> -->
+{% endblock %}
