@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Unary</title>
+
+        <!-- Remote CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+
+        <!-- Local CSS -->
+        <link rel="stylesheet" href="../asset/css/style.css"></link>
+
+
+        <!-- Remote JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-json/2.5.1/jquery.json.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.8/d3.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <!-- Local JavaScript -->
+        <script src="../asset/js/jscolor.min.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Unary</h1>
+                <p>A simple efficient way to host events</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <form method="get">
+                        <div class="col-md-12">
+                            <label>Host:</label>
+                            <p id="hostname"></p>
+                        </div>
+                        <div class="col-md-12"><br></div>
+                        <div class="col-md-12">
+                            <label>Event:</label>
+                            <p id="eventname"></p>
+                        </div>
+                        <div class="col-md-12"><br></div>
+                        <div class="col-md-12">
+                            <label>Do you wanna join?</label>
+                        </div>
+                        <div class="col-md-12"><br></div>
+                        <div class="col-md-9">
+                            <label>Name:</label>
+                            <input type="text" class="form-control" name="guestname" />
+                        </div>
+                        <div class="col-md-3">
+                            <label>Color:</label>
+                            <input type="hidden" name="guestcolor" id="color_value">
+                            <button class="jscolor {valueElement: 'color_value'}" style="height: 34px; width: 100px; border-radius: 5px; border: 1px solid #ccc;">Pick</button>
+                        </div>
+                        <div class="col-md-12" id="ckbox">
+                            <br>
+                            <label>Pick your availities:</label>
+                        </div>
+                        <div class="col-md-12">
+                            <br>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-7">
+                    <label>Who's coming:</label>
+                    <svg id="svg_donut"></svg>
+                </div>
+            </div>
+        </div>
+        <script src="../asset/js/site.js"></script>
+    </body>
+</html>
