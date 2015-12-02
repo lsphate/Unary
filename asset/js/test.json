@@ -1,6 +1,6 @@
 [
   {
-    "id": "0",
+    "id": "1",
     "hostusr": {
       "name": "David",
       "availible": [
@@ -37,6 +37,30 @@
           4
         ],
         "color": "#00BFFF"
+      },
+      {
+        "name": "Eve",
+        "availible": [
+          1,
+          4
+        ],
+        "color": "#AB82FF"
+      },
+      {
+        "name": "Frank",
+        "availible": [
+          1,
+          5
+        ],
+        "color": "#1C86EE"
+      },
+      {
+        "name": "George",
+        "availible": [
+          2,
+          3
+        ],
+        "color": "#FFD700"
       }
     ],
     "timestamps": [
