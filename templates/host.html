@@ -4,22 +4,34 @@
         <meta charset="utf-8">
         <title>Unary</title>
 
-        <!-- Remote CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+        <!-- CSS -->
+        <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../asset/css/bootstrap-datetimepicker.min.css">
 
-        <!-- Remote JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-json/2.5.1/jquery.json.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.8/d3.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-        <!-- Local JavaScript -->
+        <!-- JavaScript -->
+        <script src="../asset/js/jquery.min.js"></script>
+        <script src="../asset/js/jquery.json.min.js"></script>
+        <script src="../asset/js/bootstrap.min.js"></script>
+        <script src="../asset/js/d3.min.js"></script>
         <script src="../asset/js/jscolor.min.js"></script>
+        <script src="../asset/js/moment.min.js"></script>
+        <script src="../asset/js/bootstrap-datetimepicker.min.js"></script>
+
+        <style>
+            .entry:not(:first-of-type)
+            {
+                margin-top: 10px;
+            }
+
+            .glyphicon
+            {
+                font-size: 12px;
+            }
+        </style>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="navbar-header"><a class="navbar-brand" href="home.html">Unary</a></div>
                 <div>
                     <div class="collapse navbar-collapse" id="myNavbar">
@@ -31,22 +43,41 @@
                 </div>
             </div>
         </nav>
+
         <div class="container">
             <div class="row">
                 <div class="col-md-12"><br><br><br></div>
-                <div class="col-md-12">
-                    <form method="get">
-                        <div class="col-md-12">
-
+                <form role="form" method="get">
+                    <input type="hidden" name="eventid" value="" />
+                    <div class="col-md-6">
+                        <br>
+                        <label>Name:</label>
+                        <input type="text" class="form-control" name="hostname" />
+                    </div>
+                    <div class="col-md-6">
+                        <br>
+                        <label>Event:</label>
+                        <input type="text" class="form-control" name="describe" />
+                    </div>
+                    <div class="col-md-12">
+                        <br>
+                        <label>Times:</label>
+                        <div class="entry input-group">
+                            <input class="form-control datetimepicker" name="timestamp" type="text" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-success btn-add" type="button">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                            </span>
                         </div>
-
-                        <div class="col-md-12">
-                            <br>
-                            <button type="submit" class="btn btn-default">Submit</button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="col-md-12">
+                        <br>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
+        <script src="../asset/js/site-host.js"></script>
     </body>
 </html>
