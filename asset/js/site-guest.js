@@ -12,7 +12,7 @@ function GetUrlVars() {
     return vars;
 }
 
-var eid = GetUrlVars()["eventID"],
+var eid = GetUrlVars()["eventid"],
     url = "https://raw.githubusercontent.com/lsphate/Unary/b3059cce6b3cdcc0131b2958b0005f9f47d2b6c5/asset/js/" + eid + ".json";
 
 $.getJSON(url, function(data) {
