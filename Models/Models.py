@@ -23,19 +23,17 @@ class JsonProperty(db.TextProperty):
             value = simplejson.loads(str(value))
         except:
             pass
-
         return super(JsonProperty, self).make_value_from_datastore(value)
 
 class Event(db.Model):
-    def __init__(self):
-        event_id = StringProperty(required=True)
-        event_json = JsonProperty()
+    event_id   = db.StringProperty(required=True)
+    event_json = JsonProperty()
 
     @classmethod
     def by_id(cls, event_id):
         return Event.get_by_id(event_id, parent=event_key())
 
     @classmethod
-    def create(cls, event_json):
-        new_event = Event(parent=event_key(), event_json=event_json)
+    def create(cls, event_id, event_json):
+        new_event = Event(parent=event_key(), event_id=event_id, event_json=event_json)
         new_event.put()
