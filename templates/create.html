@@ -5,32 +5,52 @@
         <title>Unary</title>
 
         <!-- CSS -->
-        <link rel="stylesheet" href="/asset/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/asset/css/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../asset/css/bootstrap-datetimepicker.min.css">
 
         <!-- JavaScript -->
-        <script src="/asset/js/jquery.min.js"></script>
-        <script src="/asset/js/jquery.json.min.js"></script>
-        <script src="/asset/js/bootstrap.min.js"></script>
-        <script src="/asset/js/d3.min.js"></script>
-        <script src="/asset/js/jscolor.min.js"></script>
-        <script src="/asset/js/moment.min.js"></script>
-        <script src="/asset/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="../asset/js/jquery.min.js"></script>
+        <script src="../asset/js/jquery.json.min.js"></script>
+        <script src="../asset/js/bootstrap.min.js"></script>
+        <script src="../asset/js/d3.min.js"></script>
+        <script src="../asset/js/jscolor.min.js"></script>
+        <script src="../asset/js/moment.min.js"></script>
+        <script src="../asset/js/bootstrap-datetimepicker.min.js"></script>
+
+        <style>
+            header {
+                padding: 185px;
+                text-align: center;
+                /*background-color: #62A8E5; /* Pantone 292 */*/
+                /*color: #ffffff;*/
+            }
+        </style>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
-                <div class="navbar-header"><a class="navbar-brand" href="/">Unary</a></div>
+                <div class="navbar-header"><a class="navbar-brand" href="home.html">Unary</a></div>
                 <div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="/host">Create an Event</a></li>
-                        <li class="active"><a href="/guest">Join an Event</a></li>
+                        <li><a href="host.html">Create an Event</a></li>
+                        <li class="active"><a href="guest.html">Join an Event</a></li>
                     </ul>
                     </div>
                 </div>
             </div>
         </nav>
-        <p>{{event_id}}</p>
-    </body>
+        <header>
+            <div class="container">
+                <div class="col-md-12">
+                    <span class="brand-name" style="font-size: 80px;">{{event_id}}</span>
+                    <h1 style="font-size: 34px; font-weight: 200;">Your event is ready. You can share it by this link:</h1>
+                    <br>
+                </div>
+                <div class="col=md=12">
+                    <input type="text" class="form-control" size="50" name="eventid" style="width: 500px;" placeholder="{{event_id}}" />
+                </div>
+            </div>
+        </header>
+        </body>
 </html>
