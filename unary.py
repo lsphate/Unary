@@ -37,9 +37,9 @@ class CreatePage(Handler):
     def post(self):
         event_id  = self.request.get("eventid")
         event_obj = {
-                        "host_name": self.request.get("hostname"),
-                        "event_desc": self.request.get("describe"),
-                        "event_times": self.request.get_all("timestamp")
+                        "hostusr": self.request.get("hostname"),
+                        "describe": self.request.get("describe"),
+                        "timestamps": self.request.get_all("timestamp")
                     }
         event_json = simplejson.dumps(event_obj)
         Event.create(event_id, event_json)
@@ -48,8 +48,11 @@ class CreatePage(Handler):
 class GuestPage(Handler):
     def get(self):
         event_id = self.request.get("eventid")
-        # event_json = Event.
-        self.render("guest.html")
+        event_obj = Event.get_by_event_id(event_id)
+        if event_obj:
+            self.render("guest.html", event_json=event_obj.event_json)
+        else:
+            self.redirect("/")
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),

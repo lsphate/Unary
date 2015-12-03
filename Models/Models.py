@@ -30,8 +30,8 @@ class Event(db.Model):
     event_json = JsonProperty()
 
     @classmethod
-    def by_id(cls, event_id):
-        return Event.get_by_id(event_id, parent=event_key())
+    def get_by_event_id(cls, event_id):
+        return Event.all().filter('event_id =', event_id).get()
 
     @classmethod
     def create(cls, event_id, event_json):
