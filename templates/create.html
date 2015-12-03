@@ -29,12 +29,12 @@
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
-                <div class="navbar-header"><a class="navbar-brand" href="home.html">Unary</a></div>
+                <div class="navbar-header"><a class="navbar-brand" href="/">Unary</a></div>
                 <div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="host.html">Create an Event</a></li>
-                        <li class="active"><a href="guest.html">Join an Event</a></li>
+                        <li><a href="/host">Create an Event</a></li>
+                        <li class="active"><a href="/guest">Join an Event</a></li>
                     </ul>
                     </div>
                 </div>
@@ -43,12 +43,16 @@
         <header>
             <div class="container">
                 <div class="col-md-12">
-                    <span class="brand-name" style="font-size: 80px;">{{event_id}}</span>
+                    <span class="brand-name" style="font-size: 80px;">Congrats!</span>
                     <h1 style="font-size: 34px; font-weight: 200;">Your event is ready. You can share it by this link:</h1>
                     <br>
                 </div>
                 <div class="col=md=12">
-                    <input type="text" class="form-control" size="50" name="eventid" style="width: 500px;" placeholder="{{event_id}}" />
+                    <input type="text" class="form-control" size="50" name="eventid" style="width: 800px; margin-left: auto; margin-right: auto;" value="" />
+                    <script>
+                        var sharelink = "http://unary-eventhost.appspot.com/guest?eventid=" + "{{event_id}}";
+                        $('input.form-control').attr("value", sharelink);
+                    </script>
                 </div>
             </div>
         </header>
