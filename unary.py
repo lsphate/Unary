@@ -25,10 +25,6 @@ class MainPage(Handler):
     def get(self):
         self.render("index.html")
 
-class MainPage(Handler):
-    def get(self):
-        self.render("index.html")
-
 class EventPage(Handler):
     def get(self):
         self.render("event.html")
