@@ -1,29 +1,30 @@
 
 // Read JSON
-// var testJSON = [{"id":"1","hostusr":{"name":"David","availible":[1,2,3,4,5]},"guestusr":[{"name":"Ann","availible":[1,3,5],"color":"#FFA500"},{"name":"Don","availible":[2,5],"color":"#458B00"},{"name":"Cathy","availible":[2,3,4],"color":"#00BFFF"},{"name":"Eve","availible":[1,4],"color":"#AB82FF"},{"name":"Frank","availible":[1,5],"color":"#1C86EE"},{"name":"George","availible":[2,3],"color":"#FFD700"}],"timestamps":["2015-11-16","2015-11-17","2015-11-18","2015-11-19","2015-11-20"],"describe":"Birthday party for Ann!!"}];
-function GetUrlVars() {
-    var vars = [], hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for (var i = 0; i < hashes.length; i++) {
-        hash = hashes[i].split('=');
-        vars.push(hash[0]);
-        vars[hash[0]] = hash[1];
-    }
-    return vars;
-}
+// var testJSON = {hostusr":{"name":"David","availible":[1,2,3,4,5]},"guestusr":[{"name":"Ann","availible":[1,3,5],"color":"#FFA500"},{"name":"Don","availible":[2,5],"color":"#458B00"},{"name":"Cathy","availible":[2,3,4],"color":"#00BFFF"},{"name":"Eve","availible":[1,4],"color":"#AB82FF"},{"name":"Frank","availible":[1,5],"color":"#1C86EE"},{"name":"George","availible":[2,3],"color":"#FFD700"}],"timestamps":["2015-11-16","2015-11-17","2015-11-18","2015-11-19","2015-11-20"],"describe":"Birthday party for Ann!!"};
+// function GetUrlVars() {
+//     var vars = [], hash;
+//     var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+//     for (var i = 0; i < hashes.length; i++) {
+//         hash = hashes[i].split('=');
+//         vars.push(hash[0]);
+//         vars[hash[0]] = hash[1];
+//     }
+//     return vars;
+// }
 
-var eid = GetUrlVars()["eventid"],
-    url = "https://raw.githubusercontent.com/lsphate/Unary/feature/frontend/asset/js/" + eid + ".json";
+// var eid = GetUrlVars()["eventid"],
+//     url = "https://raw.githubusercontent.com/lsphate/Unary/feature/frontend/asset/js/" + eid + ".json";
 
-$.getJSON(url, function(data) {
-    var testJSON = data,
+// $.getJSON(url, function(data) {
+    var jsonStr  = $('input#response').val(),
+        testJSON = $.parseJSON(jsonStr),
         textarea = "",
         events = "[";
 
     // for (recIdx in testJSON) {
-        textarea += "Event ID:\t" + eid + "\n";
+        // textarea += "Event ID:\t" + eid + "\n";
         textarea += "\tNote:\t" + testJSON["describe"] + "\n";
-        textarea += "\tHost:\t" + testJSON["hostusr"]["name"] + "\n";
+        textarea += "\tHost:\t" + testJSON["hostusr"] + "\n";
         var dateString = "",
             guestString = "";
 
@@ -57,7 +58,7 @@ $.getJSON(url, function(data) {
     $('#svg_donut').width(divSize).height(divSize);
 
     var eventName = testJSON["describe"],
-        hostname = testJSON["hostusr"]["name"],
+        hostname = testJSON["hostusr"],
         guests = testJSON["guestusr"],
         dates = testJSON["timestamps"],
         size = dates.length,
@@ -108,13 +109,5 @@ $.getJSON(url, function(data) {
 
     }
 
-});
-
-
-
-
-
-
-
-
+// });
 
