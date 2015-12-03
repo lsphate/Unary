@@ -1,50 +1,72 @@
-"events": [
+{
+  "hostusr": {
+    "name": "David",
+    "availible": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "describe": "Birthday party for Ann!!",
+  "timestamps": [
+    "2015-11-16",
+    "2015-11-17",
+    "2015-11-18",
+    "2015-11-19",
+    "2015-11-20"
+  ],
+  "guestusr": [
     {
-      "id": "1",
-      "hostusr": [
-        {
-          "name": "David",
-          "availible": [
-            1,
-            2,
-            3,
-            4,
-            5
-          ]
-        }
+      "name": "Ann",
+      "availible": [
+        1,
+        3,
+        5
       ],
-      "guestusr": [
-        {
-          "name": "Ann",
-          "availible": [
-            1,
-            3,
-            5
-          ]
-        },
-        {
-          "name": "Den",
-          "availible": [
-            2,
-            5
-          ]
-        },
-        {
-          "name": "Cathy",
-          "availible": [
-            2,
-            3,
-            4
-          ]
-        }
+      "color": "#FFA500"
+    },
+    {
+      "name": "Don",
+      "availible": [
+        2,
+        5
       ],
-      "dates": [
-        "2015-11-16",
-        "2015-11-17",
-        "2015-11-18",
-        "2015-11-19",
-        "2015-11-20"
+      "color": "#458B00"
+    },
+    {
+      "name": "Cathy",
+      "availible": [
+        2,
+        3,
+        4
       ],
-      "describe": "Birthday party for Ann!!"
+      "color": "#00BFFF"
+    },
+    {
+      "name": "Eve",
+      "availible": [
+        1,
+        4
+      ],
+      "color": "#AB82FF"
+    },
+    {
+      "name": "Frank",
+      "availible": [
+        1,
+        5
+      ],
+      "color": "#1C86EE"
+    },
+    {
+      "name": "George",
+      "availible": [
+        2,
+        3
+      ],
+      "color": "#FFD700"
     }
   ]
+}
