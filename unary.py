@@ -39,6 +39,7 @@ class CreatePage(Handler):
         event_obj = {
                         "hostusr": self.request.get("hostname"),
                         "describe": self.request.get("describe"),
+                        "guestusr": [],
                         "timestamps": self.request.get_all("timestamp")
                     }
         event_json = simplejson.dumps(event_obj)
