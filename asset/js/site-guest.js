@@ -23,7 +23,7 @@ $.getJSON(url, function(data) {
     // for (recIdx in testJSON) {
         textarea += "Event ID:\t" + eid + "\n";
         textarea += "\tNote:\t" + testJSON["describe"] + "\n";
-        textarea += "\tHost:\t" + testJSON["hostusr"]["name"] + "\n";
+        textarea += "\tHost:\t" + testJSON["hostusr"] + "\n";
         var dateString = "",
             guestString = "";
 

@@ -1,14 +1,5 @@
 {
-  "hostusr": {
-    "name": "David",
-    "availible": [
-      1,
-      2,
-      3,
-      4,
-      5
-    ]
-  },
+  "hostusr": "David",
   "describe": "Birthday party for Ann!!",
   "timestamps": [
     "2015-11-16",
