@@ -16,6 +16,15 @@
         <script src="../asset/js/jscolor.min.js"></script>
         <script src="../asset/js/moment.min.js"></script>
         <script src="../asset/js/bootstrap-datetimepicker.min.js"></script>
+
+        <style>
+            header {
+                padding: 185px;
+                text-align: center;
+                /*background-color: #62A8E5; /* Pantone 292 */*/
+                /*color: #ffffff;*/
+            }
+        </style>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -31,5 +40,17 @@
                 </div>
             </div>
         </nav>
+        <header>
+            <div class="container">
+                <div class="col-md-12">
+                    <span class="brand-name" style="font-size: 80px;">Congrats!</span>
+                    <h1 style="font-size: 34px; font-weight: 200;">Your event is ready. You can share it by this link:</h1>
+                    <br>
+                </div>
+                <div class="col=md=12">
+                    <input type="text" class="form-control" size="50" name="eventid" style="width: 500px;" placeholder="{{event_id}}" />
+                </div>
+            </div>
+        </header>
         </body>
 </html>

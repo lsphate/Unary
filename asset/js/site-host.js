@@ -26,14 +26,14 @@ var UniqueID = function(str) {
 function CalcHash() {
     var hostname = $('form').find('input[name="hostname"]').val(),
         d = new Date();
-    var datetime = hostname
+    var toHash = hostname
                 + d.getFullYear().toString()
                 + (d.getMonth()+1).toString()
                 + d.getDate().toString()
                 + d.getHours().toString()
                 + d.getMinutes().toString()
                 + d.getSeconds().toString();
-    return datetime;
+    return toHash;
 }
 
 $(function() {
