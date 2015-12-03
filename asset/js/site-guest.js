@@ -13,53 +13,53 @@ function GetUrlVars() {
 }
 
 var eid = GetUrlVars()["eventid"],
-    url = "https://raw.githubusercontent.com/lsphate/Unary/b3059cce6b3cdcc0131b2958b0005f9f47d2b6c5/asset/js/" + eid + ".json";
+    url = "https://raw.githubusercontent.com/lsphate/Unary/feature/frontend/asset/js/" + eid + ".json";
 
 $.getJSON(url, function(data) {
     var testJSON = data,
         textarea = "",
         events = "[";
 
-    for (recIdx in testJSON) {
-        textarea += "Event ID:\t" + testJSON[recIdx]["id"] + "\n";
-        textarea += "\tNote:\t" + testJSON[recIdx]["describe"] + "\n";
-        textarea += "\tHost:\t" + testJSON[recIdx]["hostusr"]["name"] + "\n";
+    // for (recIdx in testJSON) {
+        textarea += "Event ID:\t" + eid + "\n";
+        textarea += "\tNote:\t" + testJSON["describe"] + "\n";
+        textarea += "\tHost:\t" + testJSON["hostusr"]["name"] + "\n";
         var dateString = "",
             guestString = "";
 
 
-        for (dateIdx in testJSON[recIdx]["timestamps"]) {
+        for (dateIdx in testJSON["timestamps"]) {
             if (dateIdx > 0) {
                 dateString += "\t\t\t";
             }
-            events += "{\"date\":\"" + testJSON[recIdx]["timestamps"][dateIdx] + "\"}"
-            dateString += testJSON[recIdx]["timestamps"][dateIdx] + "\n";
-            if (dateIdx < testJSON[recIdx]["timestamps"].length - 1) {
+            events += "{\"date\":\"" + testJSON["timestamps"][dateIdx] + "\"}"
+            dateString += testJSON["timestamps"][dateIdx] + "\n";
+            if (dateIdx < testJSON["timestamps"].length - 1) {
                 events += ","
             }
         }
         events += "]";
         textarea += "\tDates:\t" + dateString;
 
-        for (guestIdx in testJSON[recIdx]["guestusr"]) {
+        for (guestIdx in testJSON["guestusr"]) {
             if (guestIdx > 0) {
                 guestString += "\t\t\t";
             }
-            guestString += testJSON[recIdx]["guestusr"][guestIdx]["name"] + "\n";
+            guestString += testJSON["guestusr"][guestIdx]["name"] + "\n";
         }
         textarea += "\tGuests:\t" + guestString;
 
-    }
+    // }
     $('textarea#test').val(textarea);
 
     events = JSON.parse(events);
     var divSize = ($('div.container').width())/12*7;
     $('#svg_donut').width(divSize).height(divSize);
 
-    var eventName = testJSON[0]["describe"],
-        hostname = testJSON[0]["hostusr"]["name"],
-        guests = testJSON[0]["guestusr"],
-        dates = testJSON[0]["timestamps"],
+    var eventName = testJSON["describe"],
+        hostname = testJSON["hostusr"]["name"],
+        guests = testJSON["guestusr"],
+        dates = testJSON["timestamps"],
         size = dates.length,
         innerR = divSize/(5*guests.length),
         stroke = 30,
