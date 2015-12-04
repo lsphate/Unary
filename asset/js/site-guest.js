@@ -26,7 +26,7 @@ $('p#eventname').append(eventName);
 var ckbox = $("div.col-md-12#ckbox");
 
 for (i = 1; i <= dates.length; i++) {
-    ckbox.append('<div class="checkbox"><label><input type="checkbox" value="' + i + '" name="availible" />' + dates[i - 1] + '</label></div>');
+    ckbox.append('<div class="checkbox"><label><input type="checkbox" value="' + i + '" name="available" />' + dates[i - 1] + '</label></div>');
 }
 
 // Multi-layer rainbow chart
@@ -36,8 +36,8 @@ for (i = 0; i < guests.length; i++) {
     innerR += (stroke + 5);
     var lab = guests[i]["name"];
     arc.push(d3.svg.arc().innerRadius(innerR + (stroke/2)-0.5).outerRadius(innerR + (stroke/2)+0.5).startAngle(0).endAngle(2*Math.PI*0.8));
-    for (j = 0; j < guests[i]["availible"].length; j++) {
-        arc.push(d3.svg.arc().innerRadius(innerR).outerRadius(innerR + stroke).startAngle((guests[i]["availible"][j] - 1) * slice).endAngle(guests[i]["availible"][j] * slice));
+    for (j = 0; j < guests[i]["available"].length; j++) {
+        arc.push(d3.svg.arc().innerRadius(innerR).outerRadius(innerR + stroke).startAngle((guests[i]["available"][j] - 1) * slice).endAngle(guests[i]["available"][j] * slice));
     }
     svg.append("text").style("text-anchor", "end").text(lab)
                       .attr("font-size","20")
@@ -49,7 +49,7 @@ for (i = 0; i < guests.length; i++) {
     var col = guests[i]["color"];
     svg.append("path").attr("d", arc[k]).attr("transform", "translate(" + divSize/2 + "," + divSize/2+")").attr("fill", "grey").style("stroke-opacity", 0.25);
     k++;
-    for (j = 0; j < guests[i]["availible"].length; j++) {
+    for (j = 0; j < guests[i]["available"].length; j++) {
         svg.append("path").attr("d", arc[k]).attr("transform", "translate(" + divSize/2 + "," + divSize/2+")").attr("fill", col).attr().style('stroke', 'black');
         k++;
     }
