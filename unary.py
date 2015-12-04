@@ -63,9 +63,8 @@ class JoinPage(Handler):
                                 "guestcolor": '#' + self.request.get("guestcolor"),
                                 "available": self.request.get_all("available")
                             }
-        print "new evetnt json:", insert_event_json
-        Event.update(event_id, insert_event_json)
-        self.render('join.html', event_id=event_id)
+        event_json = Event.update(event_id, insert_event_json)
+        self.render('join.html', event_id=event_id, event_json=event_json)
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
