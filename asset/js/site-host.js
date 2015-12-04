@@ -7,7 +7,7 @@ function eliminateDuplicates(arr) {
         obj[arr[i]] = 0;
     }
     for (i in obj) {
-        out.push(i);
+        if (i != ' ') out.push(i);
     }
     return out;
 }
