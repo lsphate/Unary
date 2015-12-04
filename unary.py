@@ -60,9 +60,10 @@ class JoinPage(Handler):
         event_id  = self.request.get("eventid")
         insert_event_json = {
                                 "guestname": self.request.get("guestname"),
-                                "guestcolor": self.request.get("guestcolor"),
+                                "guestcolor": '#' + self.request.get("guestcolor"),
                                 "available": self.request.get_all("available")
                             }
+        print "new evetnt json:", insert_event_json
         Event.update(event_id, insert_event_json)
         self.render('join.html', event_id=event_id)
 
