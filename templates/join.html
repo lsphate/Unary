@@ -18,15 +18,18 @@
         <script src="../asset/js/bootstrap-datetimepicker.min.js"></script>
 
         <style>
-            header {
-                padding: 185px;
-                text-align: center;
+            div#content {
+                width:       100%;
+                height:      100%;
+                position:    absolute;
+                padding-top: 100px;
+                text-align:  center;
             }
         </style>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="navbar-header"><a class="navbar-brand" href="home.html">Unary</a></div>
                 <div>
                     <div class="collapse navbar-collapse" id="myNavbar">
@@ -38,21 +41,16 @@
                 </div>
             </div>
         </nav>
-        <header>
-            <div class="container-fluid">
-                <div class="col-md-12">
-                    <span class="brand-name" style="font-size: 80px;">Congrats!</span>
-                    <h1 style="font-size: 34px; font-weight: 200;">You are now in:</h1>
-                    <br>
-                </div>
-                <div class="col=md=12">
-                    <input type="text" class="form-control" size="50" name="eventid" style="width: 800px; margin-left: auto; margin-right: auto;" value="" />
-                    <script>
-                        var sharelink = "http://unary-eventhost.appspot.com/guest?eventid=" + "{{event_id}}";
-                        $('input.form-control').attr("value", sharelink);
-                    </script>
-                </div>
+        <div id="content" class="container">
+            <input type="hidden" id="response" value="{{event_json}}" />
+            <div class="col-md-12">
+                <span class="brand-name" style="font-size: 80px;">You're in!</span>
+                <br>
             </div>
-        </header>
-        </body>
+            <div class="col=md=12">
+                <svg id="svg_donut"></svg>
+            </div>
+        </div>
+        <script src="../asset/js/site-join.js"></script>
+    </body>
 </html>

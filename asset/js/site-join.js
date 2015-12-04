@@ -17,19 +17,6 @@ var eventName = testJSON["describe"],
     arc =[],
     k = 0;
 
-// Host name
-$('p#hostname').append(hostname);
-
-// Event name
-$('p#eventname').append(eventName);
-
-// Checkboxes
-var ckbox = $("div.col-md-12#ckbox");
-
-for (i = 1; i <= dates.length; i++) {
-    ckbox.append('<div class="checkbox"><label><input type="checkbox" value="' + i + '" name="available" />' + dates[i - 1] + '</label></div>');
-}
-
 // Multi-layer rainbow chart
 var svg = d3.select("#svg_donut");
 
@@ -63,4 +50,5 @@ for (i = 0; i < guests.length; i++) {
 }
 
 $('[data-toggle="tooltip"]').tooltip({ container: 'body' });
+
 
