@@ -43,3 +43,4 @@ class Event(db.Model):
             event_json_obj["guestusr"] = [insert_event_json]
         event.event_json = simplejson.dumps(event_json_obj)
         event.put()
+        return event.event_json

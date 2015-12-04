@@ -35,7 +35,7 @@ var svg = d3.select("#svg_donut");
 
 for (i = 0; i < guests.length; i++) {
     innerR += (stroke + 5);
-    var lab = guests[i]["name"];
+    var lab = guests[i]["guestname"];
     arc.push(d3.svg.arc().innerRadius(innerR + (stroke/2)-0.5).outerRadius(innerR + (stroke/2)+0.5).startAngle(0).endAngle(2*Math.PI*0.8));
     for (j = 0; j < guests[i]["available"].length; j++) {
         arc.push(d3.svg.arc().innerRadius(innerR).outerRadius(innerR + stroke).startAngle((guests[i]["available"][j] - 1) * slice).endAngle(guests[i]["available"][j] * slice));
@@ -47,7 +47,7 @@ for (i = 0; i < guests.length; i++) {
 
 for (i = 0; i < guests.length; i++) {
 
-    var col = guests[i]["color"];
+    var col = guests[i]["guestcolor"];
     svg.append("path").attr("d", arc[k]).attr("transform", "translate(" + divSize/2 + "," + divSize/2+")").attr("fill", "grey").style("stroke-opacity", 0.25);
     k++;
     for (j = 0; j < guests[i]["available"].length; j++) {
