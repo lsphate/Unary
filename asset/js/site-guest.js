@@ -1,9 +1,9 @@
-// events = JSON.parse(events);
+// Prepare variables
 var divSize = ($('div.container').width())/12*7;
 $('#svg_donut').width(divSize).height(divSize);
 
 var str = $('input#response').val(),
-    testJSON = $.parseJSON(str),
+    testJSON = $.parseJSON(str);
 
 var eventName = testJSON["describe"],
     hostname = testJSON["hostusr"],

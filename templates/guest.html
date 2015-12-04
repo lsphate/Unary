@@ -19,7 +19,7 @@
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="navbar-header"><a class="navbar-brand" href="/">Unary</a></div>
                 <div>
                     <div class="collapse navbar-collapse" id="myNavbar">
@@ -31,12 +31,12 @@
                 </div>
             </div>
         </nav>
-        <div class="container">
+        <div class="container-fluid">
             <input type="hidden" id="response" value="{{event_json}}"/>
             <div class="row">
                 <div class="col-md-12"><br><br><br><br></div>
                 <div class="col-md-4">
-                    <form action="join.html" method="post">
+                    <form action="/join?eventid={{event_id}}" method="post">
                         <div class="col-md-12">
                             <label>Host:</label>
                             <p id="hostname"></p>
