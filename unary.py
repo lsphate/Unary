@@ -16,9 +16,6 @@ class Handler(webapp2.RequestHandler):
       template = jinja_env.get_template(template)
       return template.render(params)
 
-    def render_json(self):
-        pass
-
     def render(self, template, **kw):
       self.write(self.render_str(template, **kw))
 
@@ -44,21 +41,34 @@ class CreatePage(Handler):
                     }
         event_json = simplejson.dumps(event_obj)
         Event.create(event_id, event_json)
-        self.render('/create.html', event_id=event_id)
+        self.render('create.html', event_id=event_id)
 
 class GuestPage(Handler):
     def get(self):
         event_id = self.request.get("eventid")
         event_obj = Event.get_by_event_id(event_id)
         if event_obj:
-            self.render("guest.html", event_json=event_obj.event_json)
-        else:
-            self.redirect("/")
+            self.render("guest.html", event_id=event_id, event_json=event_obj.event_json)
+
+class JoinPage(Handler):
+    def get(self):
+        self.render("join.html")
+
+    def post(self):
+        event_id  = self.request.get("eventid")
+        insert_event_json = {
+                                "guestname": self.request.get("guestname"),
+                                "guestcolor": self.request.get("guestcolor"),
+                                "available": self.request.get_all("available")
+                            }
+        Event.update(event_id, insert_event_json)
+        self.render('join.html', event_id=event_id)
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/create', CreatePage),
     ('/host', HostPage),
-    ('/guest', GuestPage)
+    ('/guest', GuestPage),
+    ('/join', JoinPage)
 ], debug=True)
 
