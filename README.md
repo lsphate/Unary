@@ -11,6 +11,17 @@ Doodle is a website that radically simplifies the process of scheduling events, 
 - Do not need to login to hold or reply an event.
 - In addition to just pick your available time, you can even mark your prefer slots.
 
-More features will be implied if we decide to run this proposal.####Environment & Tools
+More features will be implied if we decide to run this proposal.
+
+####Environment & Tools
 **Environment:**
-We plan to implement our proposal in JavaScript, HTML / CSS, Python / flask. And store the relative data in Amazon Web Service.**Tools:**Python, Django, Javascript, HTML, Amazon Web Services, etc.*Required environment and tools could be changed base on actual necessary.*
+We plan to implement our proposal in JavaScript, HTML / CSS, Python / flask. And store the relative data in Amazon Web Service.
+
+**Tools:**
+Python, Django, Javascript, HTML, Google App Engine, etc.
+
+**Our Website:**
+http://unary-eventhost.appspot.com/
+
+*Required environment and tools could be changed base on actual necessary.*
+
