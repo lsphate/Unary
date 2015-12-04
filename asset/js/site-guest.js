@@ -3,7 +3,6 @@ var divSize = ($('div.container').width())/12*7;
 $('#svg_donut').width(divSize).height(divSize);
 
 var str = $('input#response').val(),
-// var str = '{"hostusr":"David","describe":"Birthday party for Ann!!","timestamps":["2015-11-16","2015-11-17","2015-11-18","2015-11-19","2015-11-20"],"guestusr":[{"name":"Ann","available":[1,3,5],"color":"#FFA500"},{"name":"Don","available":[2,5],"color":"#458B00"},{"name":"Cathy","available":[2,3,4],"color":"#00BFFF"},{"name":"Eve","available":[1,4],"color":"#AB82FF"},{"name":"Frank","available":[1,5],"color":"#1C86EE"},{"name":"George","available":[2,3],"color":"#FFD700"}]}',
     testJSON = $.parseJSON(str);
 
 var eventName = testJSON["describe"],
@@ -60,7 +59,6 @@ for (i = 0; i < guests.length; i++) {
         k++;
     }
 
-}
-
 $('[data-toggle="tooltip"]').tooltip({ container: 'body' });
 
+}
