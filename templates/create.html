@@ -18,9 +18,12 @@
         <script src="../asset/js/bootstrap-datetimepicker.min.js"></script>
 
         <style>
-            header {
-                padding: 185px;
-                text-align: center;
+            div#content {
+                width:       100%;
+                height:      100%;
+                position:    absolute;
+                padding-top: 180px;
+                text-align:  center;
             }
         </style>
     </head>
@@ -38,21 +41,19 @@
                 </div>
             </div>
         </nav>
-        <header>
-            <div class="container">
-                <div class="col-md-12">
-                    <span class="brand-name" style="font-size: 80px;">Congrats!</span>
-                    <h1 style="font-size: 34px; font-weight: 200;">Your event is ready. Share it with you friend.</h1>
-                    <br>
-                </div>
-                <div class="col=md=12">
-                    <input type="text" class="form-control" size="50" name="eventid" style="width: 600px; margin-left: auto; margin-right: auto;" value="" />
-                    <script>
-                        var sharelink = "http://unary-eventhost.appspot.com/guest?eventid=" + "{{event_id}}";
-                        $('input.form-control').attr("value", sharelink);
-                    </script>
-                </div>
+        <div id="content" class="container">
+            <div class="col-md-12">
+                <span class="brand-name" style="font-size: 80px;">Congrats!</span>
+                <h1 style="font-size: 34px; font-weight: 200;">Your event is ready. Share it with you friend.</h1>
+                <br>
             </div>
-        </header>
+            <div class="col=md=12">
+                <input type="text" class="form-control" size="50" name="eventid" style="width: 600px; margin-left: auto; margin-right: auto;" value="" />
+                <script>
+                    var sharelink = "http://unary-eventhost.appspot.com/guest?eventid=" + "{{event_id}}";
+                    $('input.form-control').attr("value", sharelink);
+                </script>
+            </div>
+        </div>
         </body>
 </html>
