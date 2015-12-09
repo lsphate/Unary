@@ -30,6 +30,20 @@ The events is stored in JSON format. The rainbow chart is powered by **D3.js**, 
 Other JavaScript libraries like **jQuery**, **moment.js**, **jscolor.js** and **bootstrap-datetimepicker.js** is also used in our application.
 
 ###Back-end
+![GAE](http://notesbyanerd.com/wp-content/uploads/2015/01/google-app-engine.png)
+For our backend, we use Google App Engine with Python SDK to build the platform.
+So basically, this website contains four main routes:
+- MainPage
+    - create
+    - host
+    - guest
+    - join
+
+And all of the routing is defined in the main program - unary.py
+
+For the database part, we use Google Cloud Datastore to store the entire event message. To simplify the whole process, our Datastore only get two column: event_id & event_json, you can see that in Models/Models.py. So when user create a event, we provide an event_id for the user, and other one who want to join the event can use the event id to get the information. After the user provide his own information to join the event, we just modify the json and update the event_json for the specific event with the event_id. Simple!
+The only thing needs to take care of is that JSON is not a built-in property for Google Datastore, so what we do is to use its original TextProperty and modify it as JSONProperty to store our event_json.
+
 
 ##Release
 Our project is open source, please feel free to take a look of our code at [GitHub](https://github.com/lsphate/Unary).
